@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="author" content="藤野京">
+<meta name="description" content="藤野京的试作：可以直接在浏览器里打开的几件作品。">
+<title>试作 · 藤野京</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600&display=swap">
+<style>
+/* Layout: a single paper sheet; brush-lettered masthead, then the works as a grid of plates (three across, one column on phones). */
+:root {
+  --paper: #f1e9d8;
+  --paper-light: #f7f1e4;
+  --ink: #1b1916;
+  --ink-soft: #5a5248;
+  --cinnabar: #b4352a;
+  --rule: rgba(27, 25, 22, .16);
+  --font-brush: "Ma Shan Zheng", "Kaiti SC", "STKaiti", "KaiTi", serif;
+  --font-text: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  margin: 0; min-height: 100%;
+  color: var(--ink); font-family: var(--font-text);
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--paper-light), var(--paper) 70%);
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
+}
+.sheet { max-width: 1180px; margin: 0 auto; padding-block: clamp(36px, 8vw, 80px) 40px; }
+header { display: flex; align-items: flex-end; gap: 22px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+h1 { font-family: var(--font-brush); font-weight: 400; font-size: clamp(60px, 11vw, 112px); line-height: .9; margin: 0; letter-spacing: .08em; }
+.byline { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; font-size: 15px; color: var(--ink-soft); letter-spacing: .24em; }
+.seal { display: inline-grid; place-items: center; width: 34px; height: 34px; background: var(--cinnabar); color: var(--paper-light); font-family: var(--font-brush); font-size: 13px; line-height: 1.02; letter-spacing: 0; border-radius: 3px; writing-mode: vertical-rl; padding: 2px; }
+.lead { max-width: 38em; margin: 22px 0 40px; color: var(--ink-soft); line-height: 1.95; font-size: 15.5px; text-wrap: pretty; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 34px 28px; }
+.card { display: flex; flex-direction: column; gap: 10px; color: inherit; text-decoration: none; min-width: 0; }
+.shot { display: block; overflow: hidden; border-radius: 3px; background: var(--paper-light); box-shadow: 0 1px 0 rgba(27, 25, 22, .08), 0 12px 32px rgba(70, 48, 24, .14); }
+.shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.card:hover .shot img, .card:focus-visible .shot img { transform: scale(1.035); }
+.tags { margin-top: 6px; font-size: 12.5px; letter-spacing: .16em; color: var(--cinnabar); }
+.name { font-family: var(--font-brush); font-size: 36px; line-height: 1.1; letter-spacing: .14em; }
+.desc { color: var(--ink-soft); line-height: 1.85; font-size: 14.5px; }
+.go { align-self: flex-start; margin-top: 2px; font-family: var(--font-brush); font-size: 19px; letter-spacing: .3em; color: var(--cinnabar); border-bottom: 1px solid transparent; transition: border-color .25s; }
+.go i { font-style: normal; margin-left: .2em; }
+.card:hover .go { border-color: var(--cinnabar); }
+.card:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 4px; }
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; line-height: 1.9; color: var(--ink-soft); }
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <h1>试作</h1>
+    <div class="byline"><span class="seal">藤野京</span><span>藤野京 · 作</span></div>
+  </header>
+  <p class="lead">几件小东西，都能在浏览器里直接打开：一卷画不完的山水。</p>
+  <main class="grid">
+    <a class="card" href="wujinzang/index.html">
+      <span class="shot"><img src="assets/wujinzang.jpg" alt="无尽藏：秋日黄昏，红叶树下一叶扁舟" loading="lazy" width="1280" height="720"></span>
+      <span class="tags">水墨 · 生成艺术 · 古琴</span>
+      <span class="name">无尽藏</span>
+      <span class="desc">一卷即时生成、永不重复的水墨长卷。一叶扁舟顺江东下，时辰与节气从你打开它的这一刻开始推移，晨昏、月相、风雨霜雪随之而变，应景的古诗题在天上。</span>
+      <span class="go">展卷<i aria-hidden="true">→</i></span>
+    </a>
+  </main>
+  <footer>
+    <span>制作 · 藤野京</span>
+    <span>双击 index.html 即可打开 · 字体与图形库需联网加载 · 推荐新版 Chrome / Edge / Safari / Firefox</span>
+  </footer>
+</div>
+</body>
+</html>
